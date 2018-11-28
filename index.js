@@ -10,6 +10,10 @@ require("./startup/db")();
 require("./startup/config")();
 require("./startup/validation")();
 
+app.get('/', (req, res) => {
+  res.send('I am alive! This is front-end api app.');
+});
+
 const port = process.env.PORT || config.get("port");
 const server = app.listen(port, () =>
   winston.info(`Listening on port ${port}...`)
