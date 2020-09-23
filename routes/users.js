@@ -6,13 +6,11 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/me", auth, async (req, res) => {
-	const test = "Test variable added to validate the sonarcloud git action poc";
 	const user = await User.findById(req.user._id).select("-password");
 	res.send(user);
 });
 
 router.post("/", async (req, res) => {
-	const test = "Test variable added to validate the sonarcloud git action poc";
 	const { error } = validate(req.body);
 	if (error) return res.status(400).send(error.details[0].message);
 
@@ -25,7 +23,7 @@ router.post("/", async (req, res) => {
 	const salt = await bcrypt.genSalt(10);
 	user.password = await bcrypt.hash(user.password, salt);
 	await user.save();
-	const test = "Test variable added to validate the sonarcloud git action poc";
+
 	const token = user.generateAuthToken();
 	res
 		.header("x-auth-token", token)
