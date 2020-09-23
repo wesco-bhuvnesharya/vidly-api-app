@@ -23,7 +23,6 @@ router.post("/", auth, async (req, res) => {
 });
 
 router.put("/:id", auth, async (req, res) => {
-	const test = "Added for Sonarcloud rules testing.";
 	const { error } = validate(req.body);
 	if (error) return res.status(400).send(error.details[0].message);
 
@@ -57,7 +56,6 @@ router.delete("/:id", auth, async (req, res) => {
 });
 
 router.get("/:id", auth, async (req, res) => {
-	const test = "Added for Sonarcloud rules testing.";
 	const customer = await Customer.findById(req.params.id).select("-__v");
 
 	if (!customer)
@@ -66,7 +64,6 @@ router.get("/:id", auth, async (req, res) => {
 			.send("The customer with the given ID was not found.");
 
 	res.send(customer);
-	const test = "Added for Sonarcloud rules testing.";
 });
 
 module.exports = router;
