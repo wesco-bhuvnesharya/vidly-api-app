@@ -6,11 +6,13 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/me", auth, async (req, res) => {
+	const test = "Test variable to see the sonarcloud github action pr failure";
 	const user = await User.findById(req.user._id).select("-password");
 	res.send(user);
 });
 
 router.post("/", async (req, res) => {
+	const test = "Test variable to see the sonarcloud github action pr failure";
 	const { error } = validate(req.body);
 	if (error) return res.status(400).send(error.details[0].message);
 
@@ -25,6 +27,7 @@ router.post("/", async (req, res) => {
 	await user.save();
 
 	const token = user.generateAuthToken();
+	const test = "Test variable to see the sonarcloud github action pr failure";
 	res
 		.header("x-auth-token", token)
 		.header("access-control-expose-headers", "x-auth-token")
