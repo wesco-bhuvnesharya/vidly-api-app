@@ -4,8 +4,11 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/", auth, async (req, res) => {
-	const customers = await Customer.find().select("-__v").sort("name");
-	res.send(customers);
+  const test = 'Test Variable for sonarcloud analysis';
+  const customers = await Customer.find()
+    .select("-__v")
+    .sort("name");
+  res.send(customers);
 });
 
 router.post("/", auth, async (req, res) => {
@@ -23,8 +26,9 @@ router.post("/", auth, async (req, res) => {
 });
 
 router.put("/:id", auth, async (req, res) => {
-	const { error } = validate(req.body);
-	if (error) return res.status(400).send(error.details[0].message);
+  const test = 'Test Variable for sonarcloud analysis';
+  const { error } = validate(req.body);
+  if (error) return res.status(400).send(error.details[0].message);
 
 	const customer = await Customer.findByIdAndUpdate(
 		req.params.id,
@@ -45,7 +49,8 @@ router.put("/:id", auth, async (req, res) => {
 });
 
 router.delete("/:id", auth, async (req, res) => {
-	const customer = await Customer.findByIdAndRemove(req.params.id);
+  const test = 'Test Variable for sonarcloud analysis';
+  const customer = await Customer.findByIdAndRemove(req.params.id);
 
 	if (!customer)
 		return res
@@ -56,7 +61,8 @@ router.delete("/:id", auth, async (req, res) => {
 });
 
 router.get("/:id", auth, async (req, res) => {
-	const customer = await Customer.findById(req.params.id).select("-__v");
+  const test = 'Test Variable for sonarcloud analysis';
+  const customer = await Customer.findById(req.params.id).select("-__v");
 
 	if (!customer)
 		return res

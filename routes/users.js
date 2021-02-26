@@ -27,7 +27,6 @@ router.post("/", async (req, res) => {
 	await user.save();
 
 	const token = user.generateAuthToken();
-	const test = "Test variable to see the sonarcloud github action pr failure";
 	res
 		.header("x-auth-token", token)
 		.header("access-control-expose-headers", "x-auth-token")
