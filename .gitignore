@@ -3,3 +3,4 @@ tests/
 logfile.log
 readme 2.md
 uncaughtExceptions.log
+.scannerwork/
