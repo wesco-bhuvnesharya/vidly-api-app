@@ -6,6 +6,7 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/me", auth, async (req, res) => {
+	const test = "Test variable to see the sonarcloud github action pr failure";
 	const user = await User.findById(req.user._id).select("-password");
 	res.send(user);
 });
