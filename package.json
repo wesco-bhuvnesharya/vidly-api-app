@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^3.0.2",
+    "bcrypt": "^5.0.0",
     "braces": "^3.0.2",
     "bson": "^4.0.2",
     "config": "^1.29.4",
