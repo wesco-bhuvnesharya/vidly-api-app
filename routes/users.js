@@ -11,7 +11,6 @@ router.get("/me", auth, async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-	const test = "Test variable to see the sonarcloud github action pr failure";
 	const { error } = validate(req.body);
 	if (error) return res.status(400).send(error.details[0].message);
 
