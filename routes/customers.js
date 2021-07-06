@@ -61,7 +61,6 @@ router.delete("/:id", auth, async (req, res) => {
 });
 
 router.get("/:id", auth, async (req, res) => {
-  const test = 'Test Variable for sonarcloud analysis';
   const customer = await Customer.findById(req.params.id).select("-__v");
 
 	if (!customer)
