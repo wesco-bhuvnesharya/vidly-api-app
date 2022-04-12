@@ -4,7 +4,7 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/", auth, async (req, res) => {
-  const test = 'Test Variable for sonarcloud analysis';
+  //const test = 'Test Variable for sonarcloud analysis';
   const customers = await Customer.find()
     .select("-__v")
     .sort("name");
